@@ -1,12 +1,13 @@
-HTTrack3.49-2 launched on Thu, 19 May 2022 20:48:57 at https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/
-(httrack https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/ )
+HTTrack3.49-2 launched on Fri, 20 May 2022 13:34:56 at https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/
+(httrack https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/ -F "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H)" )
 
 Information, Warnings and Errors reported for this mirror:
 note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
 	such as username/password authentication for websites mirrored in this project
 	do not share these files/folders if you want these information to remain private
 
-20:49:01	Error: 	"Not Found" (404) at link https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/chunkCSS/IdCard.8b2b2cd46a7ab6088b7f_.css (from https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/)
+13:35:02	Error: 	"Not Found" (404) at link https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/%7B%22post%22:%7B%22id%22:%22t3_utetw9%22,%22nsfw%22:false,%22url%22:%22https://i.redd.it/bgzblcxgci091.jpg%22,%22created_timestamp%22:1652999368529,%22type%22:%22image%22,%22promoted%22:false%7D,%22subreddit%22:%7B%22id%22:%22t5_2qh1o%22,%22name%22:%22aww%22%7D%7D/ (from https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/)
+13:35:02	Error: 	"Not Found" (404) at link https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/%7B%22subreddit%22:%7B%22communityIcon%22:%22https://styles.redditmedia.com/t5_2qh1o/styles/communityIcon_6fzlk8ukx6s51.jpg/?format=pjpg&s=4cc161bfc83fc7595c62d661a34facbaa1c4c874%22,%22id%22:%22t5_2qh1o%22,%22isQuarantined%22:false,%22isNsfw%22:false,%22name%22:%22aww%22%7D%7D (from https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/)
 
-HTTrack Website Copier/3.49-2 mirror complete in 4 seconds : 3 links scanned, 1 files written (1361164 bytes overall) [247247 bytes received at 61811 bytes/sec], 1365156 bytes transferred using HTTP compression in 3 files, ratio 17%, 1.5 requests per connection
-(1 errors, 0 warnings, 0 messages)
+HTTrack Website Copier/3.49-2 mirror complete in 6 seconds : 4 links scanned, 1 files written (124311 bytes overall) [87144 bytes received at 14524 bytes/sec], 341697 bytes transferred using HTTP compression in 4 files, ratio 20%, 3.0 requests per connection
+(2 errors, 0 warnings, 0 messages)
