@@ -246,7 +246,7 @@ img, input, pre, textarea {
     background: var(--color-tone-7);
     color: var(--color-tone-1);
 }
-code, details, header, kbd, pre, samp, th, tr:nth-child(even) {
+code, details, kbd, pre, samp, th, tr:nth-child(even) {
     background: var(--color-tone-6);
 }
 body {
@@ -475,7 +475,7 @@ input[type=search] {
 .invisible {
     visibility: hidden;
 }
-.nd\:visible:not(:defined), .sidebar-open .sidebar-grid.pdp .left-sidebar, shreddit-app:not(:defined, .v2) {
+.nd\:visible:not(:defined), .sidebar-open .sidebar-grid.pdp .left-sidebar, #shreddit-app:not(:defined, .v2) {
     visibility: visible;
 }
 .static {
@@ -692,7 +692,7 @@ input[type=search] {
 .text-tone-2 {
     color: var(--color-tone-2);
 }
-.hover\:text-global-white:hover, .text-global-white, shreddit-app:not(:defined, .v2)::before {
+.hover\:text-global-white:hover, .text-global-white, #shreddit-app:not(:defined, .v2)::before {
     color: var(--color-global-white);
 }
 .no-underline {
@@ -816,32 +816,16 @@ body {
     --faceplate-body-padding: 0px!important;
     -webkit-font-smoothing: antialiased;
 }
-shreddit-app {
-    --shreddit-header-height: 48px;
-    --shreddit-bottom-padding: 52px;
+#shreddit-app {
     display: block;
 }
-shreddit-app:not(:defined, .v2)::before {
-    content: '';
-    background-color: var(--color-global-darkblue);
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 3;
-    height: var(--shreddit-header-height);
-    box-sizing: border-box;
+#shreddit-app:not(.v2) {
+    padding: 48px 0 52px;
 }
-shreddit-app:not(:defined, .v2) faceplate-dialog#menu {
-    overflow: scroll;
-}
-shreddit-app:not(.v2) {
-    padding: var(--shreddit-header-height) 0 var(--shreddit-bottom-padding);
-}
-shreddit-app:not([routename=policies]) {
+#shreddit-app:not([routename=policies]) {
     overflow-x: hidden;
 }
-shreddit-app #menu-screen {
+#shreddit-app #menu-screen {
     content: '';
     display: none;
     position: fixed;
@@ -851,41 +835,45 @@ shreddit-app #menu-screen {
     right: 0;
     z-index: 1;
 }
-shreddit-app faceplate-dialog#menu:not(.v2) {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: var(--shreddit-header-height);
+
+#menu {
+  display: none;
+}
+#menu:not(.v2) {
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    top: 48px;
     z-index: 3;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 0 6rem;
+    padding: 0px 0px 6rem;
     position: fixed;
     max-width: unset;
     background-color: var(--color-opacity-08);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) {
+#shreddit-app #menu:not(.v2) {
     --color-tone-6: #1d2535;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) nav {
+#shreddit-app #menu:not(.v2) nav {
     background-color: var(--color-tone-6);
     padding: 1rem;
     position: relative;
     z-index: 2;
     margin-bottom: 0;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) shreddit-search {
+#shreddit-app #menu:not(.v2) shreddit-search {
     display: block;
     margin-bottom: 10px;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) small {
+#shreddit-app #menu:not(.v2) small {
     font-size: 11px;
     font-weight: 400;
     line-height: 1.2;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .icon {
+#shreddit-app #menu:not(.v2) .icon {
     opacity: .5;
     --size: 20px;
     font-size: var(--size);
@@ -894,7 +882,7 @@ shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .icon {
     text-align: center;
     vertical-align: text-bottom;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) a.nav-link {
+#shreddit-app #menu:not(.v2) .nav-summary, #shreddit-app #menu:not(.v2) a.nav-link {
     font-size: 16px;
     font-weight: 600;
     line-height: 19px;
@@ -905,64 +893,64 @@ shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary, shredd
     grid-template-columns: 20px max-content auto;
     display: grid;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary:hover, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary:visited, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) a.nav-link, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) a.nav-link:hover, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) a.nav-link:visited {
+#shreddit-app #menu:not(.v2) .nav-summary, #shreddit-app #menu:not(.v2) .nav-summary:hover, #shreddit-app #menu:not(.v2) .nav-summary:visited, #shreddit-app #menu:not(.v2) a.nav-link, #shreddit-app #menu:not(.v2) a.nav-link:hover, #shreddit-app #menu:not(.v2) a.nav-link:visited {
     color: inherit;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) .nav-summary .right, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) a.nav-link .right {
+#shreddit-app #menu:not(.v2) .nav-summary .right, #shreddit-app #menu:not(.v2) a.nav-link .right {
     place-self: end;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details {
+#shreddit-app #menu:not(.v2) details {
     padding: 0;
     border-radius: 0;
     border: 0;
     margin-bottom: 0;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details:focus, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details>summary:focus {
+#shreddit-app #menu:not(.v2) details:focus, #shreddit-app #menu:not(.v2) details>summary:focus {
     outline: 0;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details>summary {
+#shreddit-app #menu:not(.v2) details>summary {
     list-style: none;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details>summary::-webkit-details-marker {
+#shreddit-app #menu:not(.v2) details>summary::-webkit-details-marker {
     display: none;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details icon-caret-down {
+#shreddit-app #menu:not(.v2) details icon-caret-down {
     transition: transform .3s ease-out;
     transform: rotate(0);
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details[open] .nav-summary {
+#shreddit-app #menu:not(.v2) details[open] .nav-summary {
     margin-bottom: 0;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details[open]>summary>.nav-summary>icon-caret-down {
+#shreddit-app #menu:not(.v2) details[open]>summary>.nav-summary>icon-caret-down {
     transform: rotate(180deg);
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details .nav-link {
+#shreddit-app #menu:not(.v2) details .nav-link {
     font-weight: unset;
     margin: 16px 0 16px 28px;
     display: block;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details details .nav-summary, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details details a.nav-link {
+#shreddit-app #menu:not(.v2) details#explore-menu-details details .nav-summary, #shreddit-app #menu:not(.v2) details#explore-menu-details details a.nav-link {
     font-size: 14px;
     margin-bottom: 16px;
     margin-top: 16px;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details details .nav-summary :first-child {
+#shreddit-app #menu:not(.v2) details#explore-menu-details details .nav-summary :first-child {
     grid-column-start: 2;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details details .nav-summary icon-caret-down.icon {
+#shreddit-app #menu:not(.v2) details#explore-menu-details details .nav-summary icon-caret-down.icon {
     --size: 22px;
     padding: 0 2px;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details nav {
+#shreddit-app #menu:not(.v2) details#explore-menu-details nav {
     padding: 0;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details .nav-link.hidden {
+#shreddit-app #menu:not(.v2) details#explore-menu-details .nav-link.hidden {
     display: none;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details .nav-link.hidden.unhidden {
+#shreddit-app #menu:not(.v2) details#explore-menu-details .nav-link.hidden.unhidden {
     display: block;
 }
-shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details a.nav-link.toggle, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details a.nav-link.toggle:hover, shreddit-app [slot=shreddit-header-hamburger-menu]:not(.v2) details#explore-menu-details a.nav-link.toggle:visited {
+#shreddit-app #menu:not(.v2) details#explore-menu-details a.nav-link.toggle, #shreddit-app #menu:not(.v2) details#explore-menu-details a.nav-link.toggle:hover, #shreddit-app #menu:not(.v2) details#explore-menu-details a.nav-link.toggle:visited {
     color: #0079d3;
 }
 .sidebar-grid.control {
@@ -976,7 +964,7 @@ shreddit-ad-post, shreddit-post {
 shreddit-ad-post:not(:defined) .award-total, shreddit-post:not(:defined) .award-total {
     visibility: hidden;
 }
-shreddit-ad-post:not(:defined) [slot=title], shreddit-post:not(:defined) [slot=title] {
+shreddit-ad-post:not(:defined) #post-title, shreddit-post:not(:defined) #post-title {
     margin-top: 0;
     padding: 0 1rem;
     margin-bottom: 16px;
@@ -1238,7 +1226,7 @@ shreddit-ad-post [slot=subredditListingPagePostDescriptor], shreddit-ad-post [sl
 shreddit-ad-post [slot=subredditListingIcon], shreddit-post [slot=subredditListingIcon] {
     grid-column: 2/3;
 }
-shreddit-ad-post [slot=title], shreddit-ad-post [slot=title-link], shreddit-post [slot=title], shreddit-post [slot=title-link] {
+shreddit-ad-post #post-title, shreddit-ad-post [slot=title-link], shreddit-post #post-title, shreddit-post [slot=title-link] {
     grid-column: 1/2;
 }
 shreddit-ad-post [slot=title-link], shreddit-post [slot=title-link] {
@@ -1293,6 +1281,74 @@ shreddit-ad-post .avatar, shreddit-post .avatar {
     transform: scale(1.3);
     clip-path: polygon(0 68.22%, 12.12% 68.22%, 12.85% 71.49%, 13.86% 74.69%, 15.14% 77.79%, 16.69% 80.77%, 18.49% 83.6%, 20.54% 86.26%, 22.8% 88.73%, 25.28% 91%, 27.94% 93.04%, 30.77% 94.85%, 33.75% 96.4%, 36.85% 97.68%, 40.05% 98.69%, 43.32% 99.42%, 46.65% 99.85%, 50% 100%, 53.35% 99.85%, 56.68% 99.42%, 59.95% 98.69%, 63.15% 97.68%, 66.25% 96.4%, 69.23% 94.85%, 72.06% 93.04%, 74.72% 91%, 77.2% 88.73%, 79.46% 86.26%, 81.51% 83.6%, 83.31% 80.77%, 84.86% 77.79%, 86.14% 74.69%, 87.15% 71.49%, 87.88% 68.22%, 100% 68.22%, 100% 0, 0 0);
 }
+
+  #headurr { 
+    background-color: #1d2535 !important;  
+    padding-left: calc(50vw - 50%);  
+    padding-right: calc(50vw - 50%);  
+    margin-left: calc(0px - (50vw - 50%));
+    margin-right: calc(0px - (50vw - 50%));
+    padding-top: var(--faceplate-body-padding);
+    padding-bottom: var(--faceplate-body-padding);
+    margin-top: calc(-1 * var(--faceplate-body-padding));
+    margin-bottom: var(--faceplate-body-padding);
+    color: var(--color-global-white);
+    position: fixed; 
+    left: 0;  right: 0;  top: 0;  z-index: 3;  height: 48px;  box-sizing: border-box;
+  }
+  #menu-icon{width:20px; height:24px}
+  #menu-button {
+    background: transparent;
+    float: right;
+    width: 50px;
+    border: none;
+  }
+  .grid-cols-8 { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .self-center { align-self: center; }
+  .col-span-7 {grid-column: span 7 / span 7;}
+  #reddit-logo svg { width: 30px; }
+  #reddit-word { position: absolute; top: 15px; left: 50px;}
+  svg{fill: white;}
+  #menu nav{
+    color:white;
+    background-color: rgb(29, 37, 53);
+  }
+  a.nav-link, .nav-summary {font-size: 16px; font-weight: 600;  line-height: 19px;  text-decoration: none;  margin: 20px 0;  align-items: center;  column-gap: 8px;  grid-template-columns: 20px max-content auto;  display: grid;}
+  a.nav-link, .nav-summary, a.nav-link:visited, .nav-summary:visited, a.nav-link:hover, .nav-summary:hover {color: inherit;}
+  a.nav-link .right,\n.nav-summary .right {  place-self: end;}
+  details:focus,details > summary:focus {  outline: none;}
+  details > summary { list-style: none;}
+  details > summary::-webkit-details-marker {  display: none;}
+  details icon-caret-down {transition: transform 0.3s ease-out;  transform: rotate(0deg);} 
+  details[open] .nav-summary {  margin-bottom: 0;}
+  details[open] > summary > .nav-summary > icon-caret-down { transform: rotate(180deg);}
+  details .nav-link {font-weight: unset;  margin: 16px 0;  display: block;  margin-left: 28px;}
+  details details a.nav-link, details details .nav-summary {  font-size: 14px;  margin-bottom: 16px;  margin-top: 16px;}
+  details details .nav-summary :first-child {  grid-column-start: 2;}
+  details details .nav-summary icon-caret-down.icon {  --size: 22px;  padding: 0 2px;}
+  .nav-link.hidden {display: none;}
+  .nav-link.hidden.unhidden {display: block;}
+  a.nav-link.toggle,a.nav-link.toggle:visited, a.nav-link.toggle:hover { color: #0079d3;}
+  #login-button {
+    background-color: rgb(36, 160, 237);
+    width: 100%;
+    display: block;
+    border-bottom-left-radius: 999px;
+    border-top-left-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-top-right-radius: 999px;
+  }
+  #post-title {
+    width: 90%;
+    margin: auto;
+    display: block;
+  }
+
+  .shreddit-post {
+    width: 100vw !important;
+    margin: auto;
+    margin-left: 200px;
+  }
     </style>
    
     <script nonce="0ejnolYAb+5MbA6GCjTsMQ==">
@@ -1494,9 +1550,30 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
       ></script>
     
       </head>
-      <body       >
+
+      <script>
+        function toggleMenu() {
+          console.log('WHAT');
+          var menuDialog = document.getElementById('menu');
+          var exploreMenu = document.getElementById('exploreMenu');
+          var openIcon = document.getElementById('menu-icon');
+          function getOpenSubmenus() {
+            var t,e;return null!==(e=null===(t=menuDialog)||void 0===t?void 0:t.querySelectorAll("details[open]"))&&void 0!==e?e:null
+          }
+          function rset() {
+            var t,e,n;null===(t=menuDialog)||void 0===t||t.scrollTo(0,0),null===(e=exploreMenu)||void 0===e||e.reset();const i=getOpenSubmenus();if(i)for(let t=0;t<i.length;t++)null===(n=i.item(t))||void 0===n||n.removeAttribute("open")
+          }
+          menuDialog&&(menuDialog.style.display=='block'?(menuDialog.style.display='none',rset()):(menuDialog.style.display='block'))
+        }
         
-        <shreddit-app
+        window.addEventListener('load', () => {
+          document.getElementById('menu-button').addEventListener("click", toggleMenu);
+        })
+;
+      </script>
+      <body>
+        
+        <div id='shreddit-app'
         
         
         loid="0000000000neq86rr7.2.1653078898000.Z0FBQUFBQmloX3R5andFVnlVQTdoWkItU1c4QUlLNWdZVlFVelRPRG1HRU5BWWFKYVJOaXlWSUk4T1B0MHoxekxxRGdPbEwySGE5NTkxdVBWcFJ2SjU2QUJZaHh3anlaOThjNDlIc2NLQVZHMWNrbEN3b0c0LVJRMERRZGNBVm9SLU81T3c4X2JpSHU"
@@ -1509,17 +1586,42 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
         deviceType="mobile"
         
         >
-        <faceplate-server-session timestamp=1653078898468></faceplate-server-session>
+
+        <div id="headurr">
+          <header class="grid h-full items-center">
+            <div class="grid grid-cols-8">
+              <div class="self-center whitespace-nowrap text-center no-underline flex px-md col-span-7">
+                <a class="text-inherit no-underline" href="/">
+                  <div id='reddit-icon' class="flex items-center text-[30px] mt-[2px]" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 20 20"> <defs> <linearGradient id="orangeredGradient" gradientTransform="rotate(90)"> <stop offset="0%" stop-color="#FE7B0E"></stop> <stop offset="100%" stop-color="#EF0A22"></stop> </linearGradient> </defs> <g> <circle fill="#FF4500" cx="10" cy="10" r="10"></circle> <path fill="#FFF" d="M16.67,10A1.46,1.46,0,0,0,14.2,9a7.12,7.12,0,0,0-3.85-1.23L11,4.65,13.14,5.1a1,1,0,1,0,.13-0.61L10.82,4a0.31,0.31,0,0,0-.37.24L9.71,7.71a7.14,7.14,0,0,0-3.9,1.23A1.46,1.46,0,1,0,4.2,11.33a2.87,2.87,0,0,0,0,.44c0,2.24,2.61,4.06,5.83,4.06s5.83-1.82,5.83-4.06a2.87,2.87,0,0,0,0-.44A1.46,1.46,0,0,0,16.67,10Zm-10,1a1,1,0,1,1,1,1A1,1,0,0,1,6.67,11Zm5.81,2.75a3.84,3.84,0,0,1-2.47.77,3.84,3.84,0,0,1-2.47-.77,0.27,0.27,0,0,1,.38-0.38A3.27,3.27,0,0,0,10,14a3.28,3.28,0,0,0,2.09-.61A0.27,0.27,0,1,1,12.48,13.79Zm-0.18-1.71a1,1,0,1,1,1-1A1,1,0,0,1,12.29,12.08Z"></path> </g> </svg>
+                  </div>
+              </a>
+              <slot name="breadcrumbs"></slot>
+            </div>
+            <button id='menu-button' class="text-white border-none bg-transparent col-span-1 p-md" onclick="toggleMenu"> 
+              <div id='menu-icon' class="float-right pt-px scale-150">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M19 10.625H1v-1.25h18v1.25zm0-7.875H1V4h18V2.75zM19 16H1v1.25h18V16z"/></svg>
+              </div> 
+            </button>
+           </div>
+          </header>
+          <div id='reddit-word' class="ml-2xs mt-[0.4375rem] text-18 text-global-white" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="55px" height="18px" viewBox="0 0 55 18"> <g> <circle fill="#ff4500" cx="45.77" cy="3.33" r="2.05"/> <path d="M16.73,12.05a1.44,1.44,0,0,0,1.54-1.48,4.91,4.91,0,0,0-.1-0.83,5.66,5.66,0,0,0-5.34-4.61c-3,0-5.51,2.76-5.51,6.15s2.47,6.15,5.51,6.15a5.47,5.47,0,0,0,4.26-1.78,1.19,1.19,0,0,0-.19-1.77,1.25,1.25,0,0,0-1.53.16,3.78,3.78,0,0,1-2.54,1.09,3.42,3.42,0,0,1-3.14-3.08h7ZM12.82,7.44a3.3,3.3,0,0,1,3,2.56h-6A3.3,3.3,0,0,1,12.82,7.44Z"/> <path d="M7.44,6.32a1.15,1.15,0,0,0-1-1.14A4.46,4.46,0,0,0,2.31,6.69V6.54A1.15,1.15,0,1,0,0,6.54V16a1.18,1.18,0,0,0,1.08,1.2A1.15,1.15,0,0,0,2.31,16V11.15A3.51,3.51,0,0,1,6.15,7.47H6.38A1.15,1.15,0,0,0,7.44,6.32Z"/> <path d="M46.92,7.56a1.15,1.15,0,0,0-2.31,0V16a1.15,1.15,0,1,0,2.31,0V7.56Z"/> <path d="M29.87,1.15A1.15,1.15,0,0,0,28.72,0h0a1.15,1.15,0,0,0-1.15,1.15V6.31a4,4,0,0,0-2.95-1.18c-3,0-5.51,2.76-5.51,6.15s2.47,6.15,5.51,6.15a4.08,4.08,0,0,0,3-1.19A1.15,1.15,0,0,0,29.87,16V1.15Zm-5.26,14c-1.77,0-3.21-1.72-3.21-3.85s1.43-3.85,3.21-3.85,3.21,1.72,3.21,3.85S26.39,15.13,24.62,15.13Z"/> <path d="M41.92,1.15A1.15,1.15,0,0,0,40.77,0h0a1.15,1.15,0,0,0-1.15,1.15V6.31a4,4,0,0,0-2.95-1.18c-3,0-5.51,2.76-5.51,6.15s2.47,6.15,5.51,6.15a4.08,4.08,0,0,0,3-1.19A1.15,1.15,0,0,0,41.92,16V1.15Zm-5.26,14c-1.77,0-3.21-1.72-3.21-3.85s1.43-3.85,3.21-3.85,3.21,1.72,3.21,3.85S38.44,15.13,36.67,15.13Z"/> <path d="M52.91,16V7.44h1a1,1,0,0,0,1.06-1,1,1,0,0,0-1-1.09H52.91V3.76a1.18,1.18,0,0,0-1.08-1.19,1.15,1.15,0,0,0-1.23,1.15V5.38h-1a1,1,0,0,0-1.06,1,1,1,0,0,0,1,1.09h1V16a1.15,1.15,0,0,0,1.15,1.15h0A1.15,1.15,0,0,0,52.91,16Z"/> </g> </svg> 
+          </div>
+          
+        </div>
+
         
-         <faceplate-dialog id="menu" slot="shreddit-header-hamburger-menu"> <nav> <shreddit-search></shreddit-search> <a class="nav-link" href="https://www.reddit.com/coins"> <icon-coins class="icon"></icon-coins> <div> <div>Coins</div> <small>0 coins</small> </div> </a> <a class="nav-link" href="https://www.reddit.com/premium"> <icon-premium class="icon"></icon-premium> Premium </a> <a class="nav-link" href="https://www.reddit.com/powerups"> <icon-powerup class="icon"></icon-powerup> Powerups </a> <shreddit-recent-subreddits></shreddit-recent-subreddits>  <shreddit-explore-menu></shreddit-explore-menu>   <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="popular_picker"> <details> <summary> <div class="nav-summary"> <icon-rising class="icon"></icon-rising> Popular Posts <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <nav> <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="lang_en"> <a class="nav-link" href="https://www.reddit.com/">English / Global</a></shreddit-tracker> <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="lang_de"><a class="nav-link" href="https://www.reddit.com/de/"> Deutsch </a></shreddit-tracker> </nav> </details> </shreddit-tracker>  <details> <summary> <div class="nav-summary"> <icon-settings class="icon"></icon-settings> Settings <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <shreddit-settings-menu></shreddit-settings-menu> </details> <a class="nav-link" href="https://www.reddithelp.com/hc/en-us/" rel="nofollow noopener ugc"> <icon-help class="icon"></icon-help> Help Center </a> <details> <summary> <div class="nav-summary"> <icon-info class="icon"></icon-info> More <icon-caret-down class="icon right"></icon-caret-down> </div> </summary>  <a class="nav-link" href="https://reddit.onelink.me/MRHZ/b3d845e">Reddit iOS</a><a class="nav-link" href="https://reddit.onelink.me/MRHZ/4c212f61">Reddit Android</a><a class="nav-link" href="https://www.reddit.com/premium">Reddit Premium</a>  <a class="nav-link" href="https://www.redditinc.com/">About Reddit</a><a class="nav-link" href="https://www.redditinc.com/advertising">Advertise</a><a class="nav-link" href="https://redditblog.com/">Blog</a><a class="nav-link" href="https://www.redditinc.com/careers/">Careers</a><a class="nav-link" href="https://www.redditinc.com/press/">Press</a>  </details> <details> <summary> <div class="nav-summary"> <icon-rules class="icon"></icon-rules> Terms &amp; Policies <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <a class="nav-link" href="https://www.redditinc.com/policies/user-agreement">User Agreement</a> <a class="nav-link" href="https://www.redditinc.com/policies/privacy-policy">Privacy Policy</a> <a class="nav-link" href="https://www.redditinc.com/policies/content-policy">Content Policy</a> <a class="nav-link" href="https://www.redditinc.com/policies/moderator-guidelines">Moderator Guidelines</a> </details> <a class="button button-small button-primary w-full max-w-full account-btn" href="https://www.reddit.com/register"> Sign Up or Log In </a> </nav> <shreddit-interactable-element><div id="menu-screen"></div></shreddit-interactable-element> </faceplate-dialog> 
-        <shreddit-good-visit-tracker
-            referrerType="other"
-             isInNsfwSeoTimingTreatment
-            
-             nsfwSeoDelayFirstVisit="30000"
-             nsfwSeoDelaySubsequentVisit="0"
-          ></shreddit-good-visit-tracker>
-          <faceplate-toaster></faceplate-toaster>
+         <div id="menu"> 
+           <nav> 
+             <shreddit-search></shreddit-search> 
+             <a class="nav-link" href="https://www.reddit.com/coins"> <icon-coins class="icon"></icon-coins> <div> <div>Coins</div> <small>0 coins</small> </div> </a> <a class="nav-link" href="https://www.reddit.com/premium"> <icon-premium class="icon"></icon-premium> Premium </a> <a class="nav-link" href="https://www.reddit.com/powerups"> <icon-powerup class="icon"></icon-powerup> Powerups </a> <shreddit-recent-subreddits></shreddit-recent-subreddits>  <shreddit-explore-menu id="'explore-menu"></shreddit-explore-menu>  
+             <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="popular_picker"> <details> <summary> <div class="nav-summary"> <icon-rising class="icon"></icon-rising> Popular Posts <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <nav> 
+              <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="lang_en"> <a class="nav-link" href="https://www.reddit.com/">English / Global</a></shreddit-tracker> 
+              <shreddit-tracker source="nav" action="https://www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/click" noun="lang_de"><a class="nav-link" href="https://www.reddit.com/de/"> Deutsch </a></shreddit-tracker> </nav> </details> </shreddit-tracker>  <details> <summary> <div class="nav-summary"> <icon-settings class="icon"></icon-settings> Settings <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <shreddit-settings-menu></shreddit-settings-menu> </details> <a class="nav-link" href="https://www.reddithelp.com/hc/en-us/" rel="nofollow noopener ugc"> <icon-help class="icon"></icon-help> Help Center </a> <details> <summary> <div class="nav-summary"> <icon-info class="icon"></icon-info> More <icon-caret-down class="icon right"></icon-caret-down> </div> </summary>  <a class="nav-link" href="https://reddit.onelink.me/MRHZ/b3d845e">Reddit iOS</a><a class="nav-link" href="https://reddit.onelink.me/MRHZ/4c212f61">Reddit Android</a><a class="nav-link" href="https://www.reddit.com/premium">Reddit Premium</a>  <a class="nav-link" href="https://www.redditinc.com/">About Reddit</a><a class="nav-link" href="https://www.redditinc.com/advertising">Advertise</a><a class="nav-link" href="https://redditblog.com/">Blog</a><a class="nav-link" href="https://www.redditinc.com/careers/">Careers</a><a class="nav-link" href="https://www.redditinc.com/press/">Press</a>  </details> <details> <summary> <div class="nav-summary"> <icon-rules class="icon"></icon-rules> Terms &amp; Policies <icon-caret-down class="icon right"></icon-caret-down> </div> </summary> <a class="nav-link" href="https://www.redditinc.com/policies/user-agreement">User Agreement</a> <a class="nav-link" href="https://www.redditinc.com/policies/privacy-policy">Privacy Policy</a> <a class="nav-link" href="https://www.redditinc.com/policies/content-policy">Content Policy</a> <a class="nav-link" href="https://www.redditinc.com/policies/moderator-guidelines">Moderator Guidelines</a> </details> <a id='login-button' class="button button-small button-primary w-full max-w-full account-btn" href="https://www.reddit.com/register"> Sign Up or Log In </a> </nav> 
+              <shreddit-interactable-element><div id="menu-screen"></div></shreddit-interactable-element> 
+        </div> 
+          
           
           
           
@@ -1535,7 +1637,8 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
    
      </div>
      <div class="main w-100 mx-auto col-start-2 col-end-2 row-start-1 row-end-auto lg:row-start-1 lg:row-end-auto">
-   <shreddit-title title="Fox is gonna make a good soup : r/aww"></shreddit-title><shreddit-post 
+   <shreddit-title title="Fox is gonna make a good soup : r/aww"></shreddit-title>
+   <div className="shreddit-post"
     id="t3_utetw9" permalink="/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/" comment-count="521"
     view-context="CommentsPage" view-type="cardView" 
     author="Baskerville84" icon="https://styles.redditmedia.com/t5_2djn1a/styles/profileIcon_snoo8e08a071-d454-4ae5-8cbf-907d92fa9884-headshot.png?width=48&amp;height=48&amp;frame=1&amp;crop=48:48,smart&amp;s=3cd2154cc0668a1b5ae345eed3cfcfedadfc5640"
@@ -1610,7 +1713,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
     <span slot="subredditListingIcon" class="items-center flex icon-container">
      
   </span>
-    <h1 slot="title" class="text-18 ">Fox is gonna make a good soup </h1>
+    <h1 id='post-title' class="text-18 ">Fox is gonna make a good soup </h1>
     
     
     <faceplate-img src="https://preview.redd.it/award_images/t5_22cerq/5izbv4fn0md41_Wholesome.png?width=64&amp;height=64&amp;crop=smart&amp;auto=webp&amp;s=89a077c4955b50fa2e57449eebf8c19e7f23ceb7" alt="When you come across a feel-good thing." class="award-icon w-md h-md mr-2xs align-middle nd:hidden" width=16 height=16 slot=award  loading=lazy   ></faceplate-img><faceplate-img src="https://www.redditstatic.com/gold/awards/icon/Illuminati_64.png" alt="A glowing commendation for all to see" class="award-icon w-md h-md mr-2xs align-middle nd:hidden" width=16 height=16 slot=award  loading=lazy   ></faceplate-img><faceplate-img src="https://preview.redd.it/award_images/t5_22cerq/fukjtec638u41_TreeHug.png?width=64&amp;height=64&amp;crop=smart&amp;auto=webp&amp;s=b46d14cae99b5519775167d0aea8418c480c28c0" alt="Show nature some love." class="award-icon w-md h-md mr-2xs align-middle nd:hidden" width=16 height=16 slot=award  loading=lazy   ></faceplate-img> <span class="award-total" slot="awards"> <faceplate-number number="46"></faceplate-number> </span>
@@ -1630,7 +1733,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
   </div>
     
      
-  </shreddit-post><div class="topics-links-block"> <div class="related-topics-links-text"> Related Topics </div> <div class="topics-list"> <topic-link buttonName="Animals and Pets"> <a href="https://www.reddit.com/t/animals_and_pets/" class="topic-wrapper topic-link-item"> Animals and Pets </a> </topic-link> </div> </div> <shreddit-comments-page-ad id="t3_7w17su" is-blank author='redditads' author-icon='https://styles.redditmedia.com/t5_3rycy/styles/profileIcon_8b4k69583rm61.jpg?width=256&amp;height=256&amp;frame=1&amp;crop=256:256,smart&amp;s=c38c34a7b24fcc5141b9febfafe35d8bbcda7d09' locked="true" media='{&quot;still&quot;:{&quot;content&quot;:null},&quot;animated&quot;:null,&quot;video&quot;:null}' title="Interested in gaining a new perspective on things? Check out the r/askreddit subreddit!"  domain='reddit.com' url='http://www.reddit.com/r/askreddit' ad-events=[{&quot;type&quot;:&quot;IMPRESSION&quot;,&quot;url&quot;:&quot;https://alb.reddit.com/i.gif?z=gAAAAABih_xXua04CEW1q7r6AneAeuB8DJOFrRJt45fFnvuYKvW8Z3T5qGkUC-6PmaVzRaUTYyG_BvLh0uF4IWlMhQDOWWLOQNOY_Ke7fPd58CsAtJb2FCAuWdZX_5z5qRzQdEGd1RIf45Rz7vbJcp9aqWtY-p1NoRVJdVWFmCPotbB_9Li0eBI=&quot;}]  outbound-link= >  <shreddit-img slot="thumbnail" class="thumbnail" loading="lazy" src="https://a.thumbs.redditmedia.com/bcDiRhb3sRzKwj_-Dmo_JYhhM7lwipju11VLlURA8n8.jpg" height="50" width="70" objectfit="cover"> </shreddit-img>  </shreddit-comments-page-ad>
+</div><div class="topics-links-block"> <div class="related-topics-links-text"> Related Topics </div> <div class="topics-list"> <topic-link buttonName="Animals and Pets"> <a href="https://www.reddit.com/t/animals_and_pets/" class="topic-wrapper topic-link-item"> Animals and Pets </a> </topic-link> </div> </div> <shreddit-comments-page-ad id="t3_7w17su" is-blank author='redditads' author-icon='https://styles.redditmedia.com/t5_3rycy/styles/profileIcon_8b4k69583rm61.jpg?width=256&amp;height=256&amp;frame=1&amp;crop=256:256,smart&amp;s=c38c34a7b24fcc5141b9febfafe35d8bbcda7d09' locked="true" media='{&quot;still&quot;:{&quot;content&quot;:null},&quot;animated&quot;:null,&quot;video&quot;:null}' title="Interested in gaining a new perspective on things? Check out the r/askreddit subreddit!"  domain='reddit.com' url='http://www.reddit.com/r/askreddit' ad-events=[{&quot;type&quot;:&quot;IMPRESSION&quot;,&quot;url&quot;:&quot;https://alb.reddit.com/i.gif?z=gAAAAABih_xXua04CEW1q7r6AneAeuB8DJOFrRJt45fFnvuYKvW8Z3T5qGkUC-6PmaVzRaUTYyG_BvLh0uF4IWlMhQDOWWLOQNOY_Ke7fPd58CsAtJb2FCAuWdZX_5z5qRzQdEGd1RIf45Rz7vbJcp9aqWtY-p1NoRVJdVWFmCPotbB_9Li0eBI=&quot;}]  outbound-link= >  <shreddit-img slot="thumbnail" class="thumbnail" loading="lazy" src="https://a.thumbs.redditmedia.com/bcDiRhb3sRzKwj_-Dmo_JYhhM7lwipju11VLlURA8n8.jpg" height="50" width="70" objectfit="cover"> </shreddit-img>  </shreddit-comments-page-ad>
          <comment-body-header class="comment-body-header" totalComments="521" > <shreddit-sort-select slot="sort-dropdown" selected="CONFIDENCE">  <data value="CONFIDENCE" data-href="?sort=confidence"> <icon-best fill class="active icon"></icon-best> Best </data> <data value="TOP" data-href="?sort=top"> <icon-top fill class="icon"></icon-top> Top </data> <data value="NEW" data-href="?sort=new"> <icon-new fill class="icon"></icon-new> New </data> <data value="CONTROVERSIAL" data-href="?sort=controversial"> <icon-controversial fill class="icon"></icon-controversial> Controversial </data> <data value="QA" data-href="?sort=qa"> <icon-quote fill class="icon"></icon-quote> Q&A </data> </shreddit-sort-select> </comment-body-header>
         
     <faceplate-batch target="#comment-tree" size="4">
@@ -1852,16 +1955,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
   </span>
     <a slot="title-link" href="/r/slowcooking/comments/29hlq8/ratio_of_meat_to_potatoes_carrots/"><h3>Ratio of meat to potatoes &amp; carrots? </h3></a>
     
-    
-    
-    <div
-    class="post-content mt-2xs hidden "
-  >
-    
-    
-    
-    
-  
+    <div class="post-content mt-2xs hidden ">
   </div>
     
      
@@ -2011,48 +2105,6 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      
   </shreddit-post>
       <shreddit-overlay-display> <shreddit-signup-drawer slot="shreddit-signup-drawer" subredditId="t5_2qh1o" subredditName="aww"></shreddit-signup-drawer> <shreddit-signup-drawer action-source="report" slot="shreddit-signup-report-drawer" subredditId="t5_2qh1o" subredditName="aww"></shreddit-signup-drawer> </shreddit-overlay-display> </div></div>
-    <faceplate-alert name="orchestrator-debug" level="debug" message="Orchestration data">
-      <template>
-        <h3>comments</h3>
-              
-              <hr />
-        
-      <details>
-        <summary>Feature: listing_below</summary>
-        <pre>
-          <code>
-            
-partialAttributes:  [object Object]
-priority         :  low
-htmlMode         :  partial
-jsMode           :  external
-loading          :  lazy
-viewports        :  3
-feature          :  listing_below
-key              :  listing_below
-          </code>
-        </pre>
-        
-        
-      </details>
-     Raw data:
-        <faceplate-json value="{&quot;shell&quot;:{&quot;name&quot;:&quot;shell&quot;},&quot;target&quot;:{&quot;middleware&quot;:[null,null],&quot;name&quot;:&quot;comments&quot;},&quot;features&quot;:{&quot;comments&quot;:{&quot;feature&quot;:{&quot;middleware&quot;:[null,null],&quot;name&quot;:&quot;comments&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{},&quot;priority&quot;:0,&quot;htmlMode&quot;:1,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;eager&quot;,&quot;viewports&quot;:[3]},&quot;childFeatures&quot;:[{&quot;feature&quot;:&quot;header-small&quot;,&quot;htmlMode&quot;:1,&quot;viewports&quot;:[0],&quot;key&quot;:&quot;header-small&quot;,&quot;priority&quot;:0},{&quot;feature&quot;:&quot;header-large&quot;,&quot;htmlMode&quot;:1,&quot;viewports&quot;:[1,2],&quot;key&quot;:&quot;header-large&quot;,&quot;priority&quot;:0},{&quot;feature&quot;:&quot;post_details_page_post&quot;,&quot;htmlMode&quot;:1,&quot;key&quot;:&quot;post_details_page_post&quot;,&quot;priority&quot;:2},{&quot;feature&quot;:&quot;top_comments&quot;,&quot;htmlMode&quot;:2,&quot;partialAttributes&quot;:{&quot;className&quot;:&quot;block min-h-[20rem]&quot;,&quot;children&quot;:{&quot;_$litType$&quot;:1,&quot;strings&quot;:[&quot;&lt;shreddit-loading&gt;&lt;/shreddit-loading&gt;&quot;],&quot;values&quot;:[]}},&quot;key&quot;:&quot;comments_forest&quot;,&quot;priority&quot;:0}],&quot;assets&quot;:[{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/pdp-client-js&quot;,&quot;url&quot;:&quot;en-US/pdp-client-js-b3eaaa1d.js&quot;}]},&quot;header-small&quot;:{&quot;feature&quot;:{&quot;name&quot;:&quot;header-small&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{},&quot;priority&quot;:0,&quot;htmlMode&quot;:1,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;preload&quot;,&quot;viewports&quot;:[0],&quot;feature&quot;:&quot;header-small&quot;,&quot;key&quot;:&quot;header-small&quot;},&quot;childFeatures&quot;:[{&quot;feature&quot;:&quot;hamburger-menu&quot;,&quot;key&quot;:&quot;hamburger-menu&quot;,&quot;priority&quot;:3}],&quot;assets&quot;:[{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/header-small-client-js&quot;,&quot;url&quot;:&quot;en-US/header-small-client-js-1e340939.js&quot;}]},&quot;hamburger-menu&quot;:{&quot;feature&quot;:{&quot;name&quot;:&quot;hamburger-menu&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{},&quot;priority&quot;:3,&quot;htmlMode&quot;:2,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;lazy&quot;,&quot;viewports&quot;:[3],&quot;feature&quot;:&quot;hamburger-menu&quot;,&quot;key&quot;:&quot;hamburger-menu&quot;},&quot;childFeatures&quot;:[],&quot;assets&quot;:[{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/hamburger-menu-client-js&quot;,&quot;url&quot;:&quot;en-US/hamburger-menu-client-js-1d6708a3.js&quot;}]},&quot;header-large&quot;:{&quot;feature&quot;:{&quot;name&quot;:&quot;header-large&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{},&quot;priority&quot;:0,&quot;htmlMode&quot;:1,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;preload&quot;,&quot;viewports&quot;:[1,2],&quot;feature&quot;:&quot;header-large&quot;,&quot;key&quot;:&quot;header-large&quot;},&quot;childFeatures&quot;:[]},&quot;post_details_page_post&quot;:{&quot;feature&quot;:{&quot;name&quot;:&quot;post_details_page_post&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{},&quot;priority&quot;:2,&quot;htmlMode&quot;:1,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;lazy&quot;,&quot;viewports&quot;:[3],&quot;feature&quot;:&quot;post_details_page_post&quot;,&quot;key&quot;:&quot;post_details_page_post&quot;},&quot;childFeatures&quot;:[]},&quot;top_comments&quot;:{&quot;feature&quot;:{&quot;name&quot;:&quot;top_comments&quot;,&quot;middleware&quot;:[null,null]},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{&quot;className&quot;:&quot;block min-h-[20rem]&quot;,&quot;children&quot;:{&quot;_$litType$&quot;:1,&quot;strings&quot;:[&quot;&lt;shreddit-loading&gt;&lt;/shreddit-loading&gt;&quot;],&quot;values&quot;:[]}},&quot;priority&quot;:0,&quot;htmlMode&quot;:2,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;preload&quot;,&quot;viewports&quot;:[3],&quot;feature&quot;:&quot;top_comments&quot;,&quot;key&quot;:&quot;comments_forest&quot;},&quot;childFeatures&quot;:[{&quot;feature&quot;:&quot;listing_below&quot;,&quot;htmlMode&quot;:2,&quot;partialAttributes&quot;:{&quot;children&quot;:{&quot;_$litType$&quot;:1,&quot;strings&quot;:[&quot;&lt;shreddit-loading&gt;&lt;/shreddit-loading&gt;&quot;],&quot;values&quot;:[]},&quot;className&quot;:&quot;hidden lb-lazy-preload&quot;},&quot;key&quot;:&quot;listing_below&quot;,&quot;priority&quot;:3}]},&quot;listing_below&quot;:{&quot;feature&quot;:{&quot;middleware&quot;:[null,null],&quot;name&quot;:&quot;listing_below&quot;},&quot;orchestration&quot;:{&quot;partialAttributes&quot;:{&quot;children&quot;:{&quot;_$litType$&quot;:1,&quot;strings&quot;:[&quot;&lt;shreddit-loading&gt;&lt;/shreddit-loading&gt;&quot;],&quot;values&quot;:[]},&quot;className&quot;:&quot;hidden lb-lazy-preload&quot;},&quot;priority&quot;:3,&quot;htmlMode&quot;:2,&quot;jsMode&quot;:1,&quot;loading&quot;:&quot;lazy&quot;,&quot;viewports&quot;:[3],&quot;feature&quot;:&quot;listing_below&quot;,&quot;key&quot;:&quot;listing_below&quot;},&quot;childFeatures&quot;:[]}},&quot;assets&quot;:[{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/pdp-client-js&quot;,&quot;url&quot;:&quot;en-US/pdp-client-js-b3eaaa1d.js&quot;},{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/header-small-client-js&quot;,&quot;url&quot;:&quot;en-US/header-small-client-js-1e340939.js&quot;},{&quot;kind&quot;:1,&quot;name&quot;:&quot;en-US/hamburger-menu-client-js&quot;,&quot;url&quot;:&quot;en-US/hamburger-menu-client-js-1d6708a3.js&quot;}]}"></faceplate-json>
-      </template>
-    </faceplate-alert>
-  <div
-    id=acceptabletest
-    class="promotedlink"
-    style="width: 1px; height: 1px; position: absolute; left: -1e+06px; top: 0px; display: block;"
-  >
-    Advertisement
-  </div>
-        <div
-    id=adblocktest
-    class="ad adsense-ad googad gemini-ad openx ad-banner GoogleAd LeftAd ad-300-250 adbar ads-area"
-    style="width: 1px; height: 1px; position: absolute; left: -1000%;"
-  ></div>
-        </shreddit-app>
+        </divp>
       </body>
-    
-<!-- Mirrored from www.reddit.com/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 May 2022 20:35:01 GMT -->
 </html>
