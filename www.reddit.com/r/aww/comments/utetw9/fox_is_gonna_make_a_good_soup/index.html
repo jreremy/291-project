@@ -730,38 +730,21 @@ body {
 .sidebar-grid.control {
     position: relative;
 }
-shreddit-ad-post, shreddit-post {
+.shreddit-post {
     grid-template-columns: auto 1fr auto;
 }
-shreddit-ad-post:not(:defined) .award-total, shreddit-post:not(:defined) .award-total {
-    visibility: hidden;
-}
-shreddit-ad-post:not(:defined) #post-title, shreddit-post:not(:defined) #post-title {
-    margin-top: 0;
-    padding: 0 1rem;
-    margin-bottom: 16px;
-}
-shreddit-ad-post:not(:defined) [slot=title-link], shreddit-post:not(:defined) [slot=title-link] {
+
+.shreddit-post [slot=title-link] {
     margin-top: 0;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-bottom: 8px;
     display: inline-block;
 }
-shreddit-ad-post:not(:defined) [slot=thumbnail], shreddit-post:not(:defined) [slot=thumbnail] {
+.shreddit-post [slot=thumbnail] {
     width: auto;
 }
-shreddit-ad-post:not(:defined) [slot=subredditListingPagePostDescriptor], shreddit-ad-post:not(:defined) [slot=aggregateListingPostDescriptor], shreddit-post:not(:defined) [slot=subredditListingPagePostDescriptor], shreddit-post:not(:defined) [slot=aggregateListingPostDescriptor] {
-    color: #6a6d6f;
-    align-items: center;
-    display: flex;
-    white-space: nowrap;
-    overflow: hidden;
-    position: relative;
-    flex: 1 0;
-    font-size:  0.875rem;
-}
-shreddit-ad-post .post-content, shreddit-post .post-content {
+.shreddit-post .post-content {
     grid-column: 1/4;
 }
 .md :first-child {
@@ -770,9 +753,15 @@ shreddit-ad-post .post-content, shreddit-post .post-content {
 .md :last-child {
     margin-bottom: 0;
 }
-shreddit-sort-select:not(:defined) {
-    display: inline-block;
-    height: 41px;
+#shreddit-sort-select {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid black;
+    z-index: 5;
+}
+#shreddit-sort-select a {
+    display: block;
 }
 shreddit-post-sort menu {
     margin: 0;
@@ -788,9 +777,9 @@ faceplate-partial[loading=eager] {
 }
 
 @media (max-width:400px) {
-    shreddit-post>.award-icon~.award-icon {
-    display: none;
-}
+    .shreddit-post>.award-icon~.award-icon {
+        display: none;
+    }
 }shreddit-comment .load-more {
     display: inline-block;
     position: relative;
@@ -894,22 +883,28 @@ shreddit-flair:not(:defined) {
     border-radius: 20px;
     margin: 0 0 8px 16px;
 }
-shreddit-comment-tree {
+#comment-tree {
     background-color: #ffffff;
     padding-bottom: .25rem;
 }
-shreddit-comment-tree .top-level {
+#comment-tree .top-level {
     padding: 1rem 1rem 0;
 }
-shreddit-comment-tree .top-level:not(:first-child), shreddit-comment-tree .truncated>.top-level:first-child {
+#comment-tree .top-level:not(:first-child), #comment-tree .truncated>.top-level:first-child {
     border-top: 4px solid #edeff1;
 }
 .comment-body-header {
     background-color: #ffffff;
     display: block;
-}
-.comment-body-header:not(:defined) {
     height: 4.688rem;
+    padding: 0px 5%;
+}
+.comment-body-header a {
+    color: black;
+}
+.comment-body-header svg {
+    width: 14px;
+    fill: black;
 }
 
 .lb-header {
@@ -978,28 +973,28 @@ topic-link:not(:defined) {
     background-color: #ffffff;
     padding: 12px 16px;
 }
-shreddit-ad-post [slot=subredditListingPagePostDescriptor], shreddit-ad-post [slot=aggregateListingPostDescriptor], shreddit-post [slot=subredditListingPagePostDescriptor], shreddit-post [slot=aggregateListingPostDescriptor] {
+.shreddit-post [slot=subredditListingPagePostDescriptor], .shreddit-post [slot=aggregateListingPostDescriptor]  {
     grid-column: 1/2;
     min-width: 0;
 }
-shreddit-ad-post [slot=subredditListingIcon], shreddit-post [slot=subredditListingIcon] {
+.shreddit-post [slot=subredditListingIcon] {
     grid-column: 2/3;
 }
-shreddit-ad-post #post-title, shreddit-ad-post [slot=title-link], shreddit-post #post-title, shreddit-post [slot=title-link] {
+.shreddit-post #post-title, .shreddit-post [slot=title-link] {
     grid-column: 1/2;
 }
-shreddit-ad-post [slot=title-link], shreddit-post [slot=title-link] {
+.shreddit-post [slot=title-link] {
     color: inherit;
     text-decoration: none;
 }
-shreddit-ad-post [slot=title-link] h3, shreddit-post [slot=title-link] h3 {
+.shreddit-post [slot=title-link] h3 {
     display: inline;
 }
-shreddit-ad-post [slot=thumbnail], shreddit-post [slot=thumbnail] {
+.shreddit-post [slot=thumbnail] {
     width: auto;
     grid-column: 3/4;
 }
-shreddit-ad-post .avatar, shreddit-post .avatar {
+.shreddit-post .avatar {
     border-radius: 50%;
     font-size: 24px;
     height: 24px;
@@ -1096,6 +1091,20 @@ shreddit-ad-post .avatar, shreddit-post .avatar {
     border-top-left-radius: 999px;
     border-bottom-right-radius: 999px;
     border-top-right-radius: 999px;
+    color: white;
+  }
+  .login-button {
+      width: 100%;
+     color: #006cbf;
+     border: 1px solid #006cbf;
+     background: transparent;
+     border-bottom-left-radius: 999px;
+    border-top-left-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-top-right-radius: 999px;
+    display: block;
+    font-weight: bold;
+    margin-top: 16px;
   }
   #post-title {
     width: 90%;
@@ -1105,14 +1114,14 @@ shreddit-ad-post .avatar, shreddit-post .avatar {
 
   .shreddit-post {
     width: 100vw !important;
-    margin: auto;
-    margin-left: 200px;
+    background: white;
   }
   body, html, .shreddit-post, #shreddit-app {
     width: 100vw !important;
   }
   .award-icon { margin-bottom: 0px;}
   #post-awards { margin-left: 5%; }
+  #subreddit { width: 90%; margin: auto;}
     </style>
    
     <script nonce="0ejnolYAb+5MbA6GCjTsMQ==">
@@ -1336,6 +1345,15 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
         }
         menuDialog&&(menuDialog.style.display=='block'?(menuDialog.style.display='none',rset()):(menuDialog.style.display='block'))
       }
+
+      function toggleSort() {
+          var sortMenu = document.getElementById('shreddit-sort-select');
+          if (sortMenu.style.display == 'block'){
+              sortMenu.style.display = 'none';
+          } else {
+              sortMenu.style.display = 'block';
+          }
+      }
     </script>
     
       </head>
@@ -1398,7 +1416,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      <div class="sidebar-grid control grid justify-items-center
        md:mx-auto md:gap-x-md no-right-sidebar">
      <div class="main w-100 mx-auto col-start-2 col-end-2 row-start-1 row-end-auto lg:row-start-1 lg:row-end-auto">
-   <div className="shreddit-post"
+   <div
     id="t3_utetw9" permalink="/r/aww/comments/utetw9/fox_is_gonna_make_a_good_soup/" comment-count="521"
     view-context="CommentsPage" view-type="cardView" 
     author="Baskerville84" icon="https://styles.redditmedia.com/t5_2djn1a/styles/profileIcon_snoo8e08a071-d454-4ae5-8cbf-907d92fa9884-headshot.png?width=48&amp;height=48&amp;frame=1&amp;crop=48:48,smart&amp;s=3cd2154cc0668a1b5ae345eed3cfcfedadfc5640"
@@ -1407,12 +1425,13 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      created="2022-05-19T22:29:28.529000+0000" 
      awarded
      
-    class="block  bg-tone-7 box-border mb-xs pt-xs nd:visible
+    class="shreddit-post block  bg-tone-7 box-border mb-xs pt-xs nd:visible
     nd:pt-xs nd:pb-2xl"
   >
     <div
+    id="subreddit"
     slot="commentsPagePostDescriptor"
-    class="py-xs pr-2xl mw-0 flex grow shrink-0 whitespace-nowrap overflow-hidden relative items-center pl-md mb-xs text-14 text-tone-2"
+    class="py-xs pr-2xl mw-0 flex grow shrink-0 whitespace-nowrap overflow-hidden relative items-center mb-xs text-14 text-tone-2"
   >
     <div class="items-center flex">
       <span
@@ -1470,11 +1489,28 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      </div>
     
      
-</div><div class="topics-links-block"> <div class="related-topics-links-text"> Related Topics </div> <div class="topics-list"> <a href="https://www.reddit.com/t/animals_and_pets/" class="topic-wrapper topic-link-item"> Animals and Pets </a> </div> </div> <shreddit-comments-page-ad id="t3_7w17su" is-blank author='redditads' author-icon='https://styles.redditmedia.com/t5_3rycy/styles/profileIcon_8b4k69583rm61.jpg?width=256&amp;height=256&amp;frame=1&amp;crop=256:256,smart&amp;s=c38c34a7b24fcc5141b9febfafe35d8bbcda7d09' locked="true" media='{&quot;still&quot;:{&quot;content&quot;:null},&quot;animated&quot;:null,&quot;video&quot;:null}' title="Interested in gaining a new perspective on things? Check out the r/askreddit subreddit!"  domain='reddit.com' url='http://www.reddit.com/r/askreddit' ad-events=[{&quot;type&quot;:&quot;IMPRESSION&quot;,&quot;url&quot;:&quot;https://alb.reddit.com/i.gif?z=gAAAAABih_xXua04CEW1q7r6AneAeuB8DJOFrRJt45fFnvuYKvW8Z3T5qGkUC-6PmaVzRaUTYyG_BvLh0uF4IWlMhQDOWWLOQNOY_Ke7fPd58CsAtJb2FCAuWdZX_5z5qRzQdEGd1RIf45Rz7vbJcp9aqWtY-p1NoRVJdVWFmCPotbB_9Li0eBI=&quot;}]  outbound-link= >  <shreddit-img slot="thumbnail" class="thumbnail" loading="lazy" src="https://a.thumbs.redditmedia.com/bcDiRhb3sRzKwj_-Dmo_JYhhM7lwipju11VLlURA8n8.jpg" height="50" width="70" objectfit="cover"> </shreddit-img>  </shreddit-comments-page-ad>
-         <comment-body-header class="comment-body-header" totalComments="521" > <shreddit-sort-select slot="sort-dropdown" selected="CONFIDENCE">  <data value="CONFIDENCE" data-href="?sort=confidence"> <icon-best fill class="active icon"></icon-best> Best </data> <data value="TOP" data-href="?sort=top"> <icon-top fill class="icon"></icon-top> Top </data> <data value="NEW" data-href="?sort=new"> <icon-new fill class="icon"></icon-new> New </data> <data value="CONTROVERSIAL" data-href="?sort=controversial"> <icon-controversial fill class="icon"></icon-controversial> Controversial </data> <data value="QA" data-href="?sort=qa"> <icon-quote fill class="icon"></icon-quote> Q&A </data> </shreddit-sort-select> </comment-body-header>
+</div><div class="topics-links-block"> <div class="related-topics-links-text"> Related Topics </div> <div class="topics-list"> <a href="https://www.reddit.com/t/animals_and_pets/" class="topic-wrapper topic-link-item"> Animals and Pets </a> </div> </div>
+         <div class="comment-body-header" > 
+             <strong>521 Comments</strong> sorted by
+             <div style="display: inline-block">
+             <button id="toggle-sort" onclick="toggleSort" ontouchstart="toggleSort()">
+                 <icon-top fill class="icon"></icon-top> Top
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 13.125a.624.624 0 01-.442-.183l-5-5 .884-.884L10 11.616l4.558-4.558.884.884-5 5a.624.624 0 01-.442.183z"/></svg>
+             </button>
+             <div id="shreddit-sort-select" slot="sort-dropdown" selected="CONFIDENCE">  
+                <a href="?sort=confidence"> <icon-best fill class="active icon"></icon-best> Best </a> 
+                <a href="?sort=top"> <icon-top fill class="icon"></icon-top> Top </a>
+                <a href="?sort=new"> <icon-new fill class="icon"></icon-new> New </a> 
+                <a href="?sort=controversial"> <icon-controversial fill class="icon"></icon-controversial> Controversial </data> 
+                <a href="?sort=qa"> <icon-quote fill class="icon"></icon-quote> Q&A </a>       
+            </div> 
+        </div>
+        <button class="button button-small button-plain login-button">Add a Comment</button>
+        
+    </div>
         
     <faceplate-batch target="#comment-tree" size="4">
-      <shreddit-comment-tree
+      <div
         id="comment-tree"
         thingId="t1_undefined"
         subreddit="aww"
@@ -1562,7 +1598,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      </div> </shreddit-comment> 
 
       </div>
-      </shreddit-comment-tree>
+    </div>
     </faceplate-batch>
   
     <div class="lb-header">
@@ -1570,7 +1606,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
           <h2 class="linked">More posts you may like</h2>
         </div>
       </div> 
-      <shreddit-post 
+      <div 
     id="t3_7rnabr" permalink="/r/EatCheapAndHealthy/comments/7rnabr/chicken_stew_suggestions_for_improvement/" comment-count="58"
     view-context="ListingBelowLinkedPosts" view-type="classicView" 
     author="rusty0123" icon="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_0.png"
@@ -1587,7 +1623,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
     
     
      
-    class="grid bg-tone-7 box-border mb-xs pt-xs nd:visible
+    class="shreddit-post grid bg-tone-7 box-border mb-xs pt-xs nd:visible
     nd:pt-xs nd:pb-2xl"
     
   >
@@ -1637,8 +1673,8 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
   </div>
     
      
-  </shreddit-post>
-  <shreddit-post 
+</div>
+  <div
     id="t3_29hlq8" permalink="/r/slowcooking/comments/29hlq8/ratio_of_meat_to_potatoes_carrots/" comment-count="33"
     view-context="ListingBelowLinkedPosts" view-type="classicView" 
     author="Kryeiszkhazek" icon="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_7.png"
@@ -1655,7 +1691,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
     
     
      
-    class="grid bg-tone-7 box-border mb-xs pt-xs nd:visible
+    class="shreddit-post grid bg-tone-7 box-border mb-xs pt-xs nd:visible
     nd:pt-xs nd:pb-2xl"
     
   >
@@ -1696,7 +1732,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
   </div>
     
      
-  </shreddit-post><shreddit-post 
+</div><div
     id="t3_s0b8o9" permalink="/r/slowcooking/comments/s0b8o9/nothing_better_on_a_cold_night_than_beef_stew/" comment-count="24"
     view-context="ListingBelowLinkedPosts" view-type="classicView" 
     author="angierue" icon="https://styles.redditmedia.com/t5_17xwhy/styles/profileIcon_snoo501607dd-8bfe-4fb9-908e-680d361176b0-headshot.png?width=48&amp;height=48&amp;frame=1&amp;crop=48:48,smart&amp;s=6ae5ea76add2e183f840a98ef4c4d38f0e941b5b"
@@ -1713,14 +1749,14 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      with-thumbnail="true"
     
      
-    class="grid bg-tone-7 box-border mb-xs pt-xs nd:visible
+    class="shreddit-post grid bg-tone-7 box-border mb-xs pt-xs nd:visible
     nd:pt-xs nd:pb-2xl"
     
   >
     <span slot="aggregateListingPostDescriptor" class="py-xs px-md mw-0">
     <span class="items-center flex">
       <span class="avatar mr-2xs w-lg h-lg text-24 leading-none">
-        <span>  <div class="shreddit-subreddit-icon__icon"> <icon-community aria-hidden="true" style="color:" fill></icon-community> </div>  </span>
+        <span>  <div class="shreddit-subreddit-icon__icon"> <icon-community aria-hidden="true" fill></icon-community> </div>  </span>
       </span>
       <a
     href="/r/slowcooking/"
@@ -1751,7 +1787,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
     <a slot="title-link" href="/r/slowcooking/comments/s0b8o9/nothing_better_on_a_cold_night_than_beef_stew/"><h3>Nothing better on a cold night than beef stew! </h3></a>
     <div slot="thumbnail" class="flex justify-end items-start mx-md"> <div class="flex justify-center items-center"> <faceplate-img src="https://a.thumbs.redditmedia.com/WKyYgsQimLbbzdaV_IoSwil1x1uD8aIRBsToLhAQoO4.jpg" alt="" class="mb-0" width=96 height=70    objectfit=cover  ></faceplate-img>  </div> </div>
     
-  </shreddit-post><shreddit-post 
+</div><div
     id="t3_gdcjav" permalink="/r/Old_Recipes/comments/gdcjav/northwest_alaskan_stew_for_a_village_or_2_or_3/" comment-count="227"
     view-context="ListingBelowLinkedPosts" view-type="classicView" 
     author="Maasagrauq" icon="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_6.png"
@@ -1768,7 +1804,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
      with-thumbnail="true"
     
      
-    class="grid bg-tone-7 box-border mb-xs pt-xs nd:visible
+    class="shreddit-post grid bg-tone-7 box-border mb-xs pt-xs nd:visible
     nd:pt-xs nd:pb-2xl"
     
   >
@@ -1809,7 +1845,7 @@ window.addEventListener("faceplate-alert", a), window.setTimeout((() => {
     <faceplate-img src="https://www.redditstatic.com/gold/awards/icon/gold_64.png" alt="Gives 100 Reddit Coins and a week of r/lounge access and ad-free browsing." class="award-icon w-md h-md mr-2xs align-middle nd:hidden" width=16 height=16 slot=award  loading=lazy   ></faceplate-img> <span class="award-total" slot="awards"> <faceplate-number number="1"></faceplate-number> </span>
     
      
-  </shreddit-post>
+  </div>
       <shreddit-overlay-display> <shreddit-signup-drawer slot="shreddit-signup-drawer" subredditId="t5_2qh1o" subredditName="aww"></shreddit-signup-drawer> <shreddit-signup-drawer action-source="report" slot="shreddit-signup-report-drawer" subredditId="t5_2qh1o" subredditName="aww"></shreddit-signup-drawer> </shreddit-overlay-display> </div></div>
         </divp>
       </body>
