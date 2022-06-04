@@ -1,1 +1,0 @@
-import{_ as t,e as a,n as e,T as s,s as d}from"./shell-f8d273fb.js";import{W as o}from"./with-pubsub-d126236e.js";const c=o(d);let p=class extends c{constructor(){super(...arguments),this.data={}}connectedCallback(){super.connectedCallback(),this.publish(s.PageDataLoaded,this.data)}};t([a({type:Object})],p.prototype,"data",void 0),p=t([e("reddit-page-data")],p);
